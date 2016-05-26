@@ -94,16 +94,16 @@
 #                   Example (all one line)
 #                   LOGGING_MANAGER="-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager"
 # -----------------------------------------------------------------------------
-JAVA_OPTS="-server -Dfile.encoding=UTF-8 -Duser.timezone=GMT+08 -Xms256m -Xmx512m -Dspring.profiles.active=test -Djava.library.path=/usr/local/java/apache-tomcat-8.0.32/lib"
+JAVA_OPTS="-server -Dfile.encoding=UTF-8 -Duser.timezone=GMT+08 -Xms256m -Xmx512m -Dspring.profiles.active=test -Djava.library.path=/usr/local/java/apache-tomcat-8.0.35/lib"
 CATALINA_OPTS="-Dcom.sun.management.jmxremote
   -Dcom.sun.management.jmxremote.port=9100
   -Dcom.sun.management.jmxremote.rmi.port=9100
-  -Djava.rmi.server.hostname=123.57.29.9
+  -Djava.rmi.server.hostname=localhost
   -Dcom.sun.management.jmxremote.ssl=false
   -Dcom.sun.management.jmxremote.local.only=false
   -Dcom.sun.management.jmxremote.authenticate=true
-  -Dcom.sun.management.jmxremote.password.file=/usr/local/java/jdk1.8.0_73/jre/lib/management/jmxremote.password
-  -Dcom.sun.management.jmxremote.access.file=/usr/local/java/jdk1.8.0_73/jre/lib/management/jmxremote.access"
+  -Dcom.sun.management.jmxremote.password.file=/usr/local/java/jdk1.8.0_91/jre/lib/management/jmxremote.password
+  -Dcom.sun.management.jmxremote.access.file=/usr/local/java/jdk1.8.0_91/jre/lib/management/jmxremote.access"
 
 # OS specific support.  $var _must_ be set to either true or false.
 cygwin=false

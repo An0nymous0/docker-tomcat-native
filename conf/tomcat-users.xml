@@ -40,7 +40,7 @@
   <role rolename="manager-script"/>
   <role rolename="tomcat"/>
   <role rolename="role1"/>
-  <user username="tomcat" password="Yhbj@6668" roles="tomcat,manager-gui,manager-script"/>
-  <user username="both" password="Yhbj@6668" roles="tomcat,role1"/>
-  <user username="role1" password="Yhbj@6668" roles="role1"/>
+  <user username="tomcat" password="123456" roles="tomcat,manager-gui,manager-script"/>
+  <user username="both" password="123456" roles="tomcat,role1"/>
+  <user username="role1" password="123456" roles="role1"/>
 </tomcat-users>

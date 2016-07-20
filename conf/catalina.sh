@@ -94,7 +94,7 @@
 #                   Example (all one line)
 #                   LOGGING_MANAGER="-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager"
 # -----------------------------------------------------------------------------
-JAVA_OPTS="-server -Dfile.encoding=UTF-8 -Duser.timezone=GMT+08 -Xms256m -Xmx512m -Dspring.profiles.active=test -Djava.library.path=/usr/local/java/apache-tomcat-8.0.35/lib"
+JAVA_OPTS="-server -Dfile.encoding=UTF-8 -Duser.timezone=GMT+08 -Xms256m -Xmx512m -Dspring.profiles.active=test -Djava.library.path=/usr/local/java/apache-tomcat-8.0.36/lib"
 CATALINA_OPTS="-Dcom.sun.management.jmxremote
   -Dcom.sun.management.jmxremote.port=9100
   -Dcom.sun.management.jmxremote.rmi.port=9100

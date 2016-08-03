@@ -9,14 +9,14 @@ RUN mkdir -p /usr/local/java
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 #默认自动解压.gz文件
 RUN wget -P /usr/local/java/ --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u91-b14/jdk-8u91-linux-x64.tar.gz" 
-RUN wget -P /usr/local/java/ "http://mirrors.hust.edu.cn/apache/tomcat/tomcat-8/v8.0.36/bin/apache-tomcat-8.0.36.tar.gz" 
+RUN wget -P /usr/local/java/ "http://mirrors.hust.edu.cn/apache/tomcat/tomcat-8/v8.5.4/bin/apache-tomcat-8.5.4.tar.gz" 
 RUN wget -P /usr/local/java/ "https://www.openssl.org/source/openssl-1.0.2h.tar.gz" 
 RUN wget -P /usr/local/java/ "http://mirrors.hust.edu.cn/apache/tomcat/tomcat-connectors/native/1.2.8/source/tomcat-native-1.2.8-src.tar.gz"
 RUN wget -P /usr/local/java/ "http://mirrors.hust.edu.cn/apache/apr/apr-1.5.2.tar.gz" 
 RUN wget -P /usr/local/java/ "http://mirrors.hust.edu.cn/apache/apr/apr-util-1.5.4.tar.gz"
 WORKDIR /usr/local/java
 RUN tar zxvf jdk-8u91-linux-x64.tar.gz
-RUN tar zxvf apache-tomcat-8.0.36.tar.gz
+RUN tar zxvf apache-tomcat-8.5.4.tar.gz
 RUN tar zxvf openssl-1.0.2h.tar.gz
 RUN tar zxvf tomcat-native-1.2.8-src.tar.gz
 RUN tar zxvf apr-1.5.2.tar.gz
@@ -49,21 +49,26 @@ RUN make&&make install
 WORKDIR /usr/local/java/tomcat-native-1.2.8-src/native
 RUN ./configure --with-apr=/usr/local/apr/bin/apr-1-config \
                 --with-java-home=/usr/local/java/jdk1.8.0_91 \
-                --prefix=/usr/local/java/apache-tomcat-8.0.36
+                --prefix=/usr/local/java/apache-tomcat-8.5.4
 RUN make&&make install
 #替换配置文件
-ADD conf/catalina.sh /usr/local/java/apache-tomcat-8.0.36/bin/
-ADD conf/server.xml /usr/local/java/apache-tomcat-8.0.36/conf/
-ADD conf/tomcat-users.xml /usr/local/java/apache-tomcat-8.0.36/conf/
+ADD conf/catalina.sh /usr/local/java/apache-tomcat-8.5.4/bin/
+ADD conf/server.xml /usr/local/java/apache-tomcat-8.5.4/conf/
+ADD conf/tomcat-users.xml /usr/local/java/apache-tomcat-8.5.4/conf/
 ADD conf/jmxremote.password /usr/local/java/jdk1.8.0_91/jre/lib/management/
 RUN chmod 600 /usr/local/java/jdk1.8.0_91/jre/lib/management/jmxremote.password
 ADD conf/jmxremote.access /usr/local/java/jdk1.8.0_91/jre/lib/management/
 #清理垃圾
-WORKDIR /usr/local/java/apache-tomcat-8.0.36/logs
+WORKDIR /usr/local/java/apache-tomcat-8.5.4/logs
 RUN rm -rf /usr/local/java/apr-1.5.2
 RUN rm -rf /usr/local/java/apr-util-1.5.4
 RUN rm -rf /usr/local/java/openssl-1.0.2h
 RUN rm -rf /usr/local/java/tomcat-native-1.2.8-src
+RUN rm -f /usr/local/java/apache-tomcat-8.5.4.tar.gz
+RUN rm -f /usr/local/java/apr-1.5.2.tar.gz
+RUN rm -f /usr/local/java/apr-util-1.5.4.tar.gz
+RUN rm -f /usr/local/java/openssl-1.0.2h.tar.gz
+RUN rm -f /usr/local/java/tomcat-native-1.2.8-src.tar.gz
 #添加环境变量
 ENV LANG en_US.UTF-8
 ENV JAVA_HOME /usr/local/java/jdk1.8.0_91

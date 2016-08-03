@@ -2,11 +2,11 @@
 
 **软件版本:**
 * jdk8
-* Tomcat 8.0.36
+* Tomcat 8.5.4
 * openssl 1.0.2h
 * apr 1.5.2
 * apr-util 1.5.4
-* Tomcat Native 1.2.7
+* Tomcat Native 1.2.8
 
 **构建:**
 `docker build -t="tomcat/tomcat-native" .`

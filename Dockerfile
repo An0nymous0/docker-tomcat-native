@@ -54,6 +54,7 @@ RUN make&&make install
 #替换配置文件
 ADD conf/catalina.sh /usr/local/java/apache-tomcat-8.5.4/bin/
 ADD conf/server.xml /usr/local/java/apache-tomcat-8.5.4/conf/
+ADD conf/manager.xml /usr/local/java/apache-tomcat-8.5.4/conf/Catalina/localhost/
 ADD conf/tomcat-users.xml /usr/local/java/apache-tomcat-8.5.4/conf/
 ADD conf/jmxremote.password /usr/local/java/jdk1.8.0_91/jre/lib/management/
 RUN chmod 600 /usr/local/java/jdk1.8.0_91/jre/lib/management/jmxremote.password

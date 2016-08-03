@@ -69,6 +69,7 @@ RUN rm -f /usr/local/java/apr-1.5.2.tar.gz
 RUN rm -f /usr/local/java/apr-util-1.5.4.tar.gz
 RUN rm -f /usr/local/java/openssl-1.0.2h.tar.gz
 RUN rm -f /usr/local/java/tomcat-native-1.2.8-src.tar.gz
+RUN rm -f /usr/local/java/jdk-8u91-linux-x64.tar.gz
 #添加环境变量
 ENV LANG en_US.UTF-8
 ENV JAVA_HOME /usr/local/java/jdk1.8.0_91

@@ -80,4 +80,4 @@ ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/apr/lib
 #调整时差
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN /bin/echo -e "ZONE="Asia/Shanghai"\nUTC=false\nRTC=false" > /etc/sysconfig/clock
-CMD ["/usr/local/java/apache-tomcat-8.0.36/bin/catalina.sh","run"]
+CMD ["/usr/local/java/apache-tomcat-8.5.4/bin/catalina.sh","run"]

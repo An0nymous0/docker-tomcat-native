@@ -1,0 +1,10 @@
+<!--
+  tomcat 8.5以上版本会出现如果端口映射不一致，则导致  manager的管理页面提示403 Access Denied
+  需要加入以下文件解决docker映射端口问题：
+  解决方案以及资料：
+  http://stackoverflow.com/questions/38172756/apache-tomcat-8-5-3-manager-app-403-error/38650401#38650401
+  https://github.com/docker-library/tomcat/issues/15
+-->
+
+<Context privileged="true" antiResourceLocking="false" docBase="${catalina.home}/webapps/manager">
+<Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="^.*$" /></Context>
